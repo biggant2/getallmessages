@@ -8,7 +8,6 @@ const { token, guild } = require('./config.json')
 client.once('ready', async () => {
     let channels = client.guilds.cache.get(guild).channels.cache.filter(channel => channel.type === "text").array();
     for(channel of channels) {
-        console.log(channel)
         let collector = collectAll(channel);
         await new Promise((resolve, reject) => {
             collector.on('messages', (messages) => {
